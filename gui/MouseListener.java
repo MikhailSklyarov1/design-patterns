@@ -65,9 +65,6 @@ public class MouseListener extends MouseAdapter {
 
 		if (c.getTool() == Tool.SELECT) {
 			c.moveSelectedShapes(new Point(mouseDelta.x, mouseDelta.y));
-//			for (Shape s : c.getSelection()) {
-//				s.move(mouseDelta.x, mouseDelta.y);
-//			}
 		}
 
 		c.getDrawing().repaint();
@@ -147,16 +144,7 @@ public class MouseListener extends MouseAdapter {
 		isDrawing = false;
 		newShape = null;
 
-		if (c.getTool() == Tool.SELECT) {
-
-			Point total = new Point(m.getPoint().x - startPos.x, m.getPoint().y
-					- startPos.y);
-
-			if ((total.x != 0) || (total.y != 0)) {
-				c.recordMovement(total);
-			}
-
-		}
+		c.getDrawing().repaint();
 	}
 
 }
